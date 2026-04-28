@@ -1,4 +1,4 @@
-import techImg from "@/assets/technology.jpg";
+import techImg from "@/assets/technology.jpeg";
 import { MapPin, Clock } from "lucide-react";
 
 export function Technology() {
@@ -65,7 +65,7 @@ export function Technology() {
           <div className="overflow-hidden rounded-[2rem]">
             <img
               src={techImg}
-              alt="Modern minimalist intraoral scanner on warm oak counter"
+              alt="Smile design analysis showing precise aesthetic proportions"
               loading="lazy"
               width={1536}
               height={1024}

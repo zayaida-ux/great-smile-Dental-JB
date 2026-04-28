@@ -1,6 +1,26 @@
-import heroImg from "@/assets/hero-reception.jpg";
+import { useEffect, useState } from "react";
+import slide1 from "@/assets/clinic-treatment-room.webp";
+import slide2 from "@/assets/clinic-reception.jpg";
+import slide3 from "@/assets/clinic-waiting-bench.jpg";
+import slide4 from "@/assets/clinic-hallway.jpg";
+
+const slides = [
+  { src: slide1, alt: "Cozy treatment room with dental chair and warm wooden cabinets" },
+  { src: slide2, alt: "Warm, sunlit dental reception area" },
+  { src: slide3, alt: "Minimalist waiting bench in warm wood tones" },
+  { src: slide4, alt: "Softly lit hallway leading to treatment rooms" },
+];
 
 export function Hero() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % slides.length);
+    }, 5500);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section id="top" className="relative overflow-hidden">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 pb-20 pt-10 md:grid-cols-12 md:gap-10 md:px-10 md:pb-32 md:pt-16">
@@ -52,13 +72,33 @@ export function Hero() {
 
         <div className="relative md:col-span-6">
           <div className="relative overflow-hidden rounded-[2rem] bg-sand shadow-[0_30px_80px_-30px_rgba(120,90,60,0.35)]">
-            <img
-              src={heroImg}
-              alt="Cozy, sunlit dental clinic reception with warm beige tones"
-              width={1536}
-              height={1280}
-              className="h-[480px] w-full object-cover md:h-[640px]"
-            />
+            <div className="relative h-[480px] w-full md:h-[640px]">
+              {slides.map((s, i) => (
+                <img
+                  key={s.src}
+                  src={s.src}
+                  alt={s.alt}
+                  width={1536}
+                  height={1280}
+                  className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1400ms] ease-in-out ${
+                    i === index ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+              ))}
+            </div>
+            <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+              {slides.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  aria-label={`Go to slide ${i + 1}`}
+                  onClick={() => setIndex(i)}
+                  className={`h-1.5 rounded-full transition-all duration-500 ${
+                    i === index ? "w-8 bg-background" : "w-1.5 bg-background/60"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
           <div className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-border bg-card/95 px-6 py-5 shadow-xl backdrop-blur md:block">
             <p className="font-serif text-sm italic text-muted-foreground">
