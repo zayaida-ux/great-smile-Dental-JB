@@ -1,4 +1,4 @@
-import aboutImg from "@/assets/about-philosophy.jpg";
+import aboutImg from "@/assets/dr-tay-child.jpeg";
 
 export function About() {
   return (
@@ -8,7 +8,7 @@ export function About() {
           <div className="relative overflow-hidden rounded-[2rem]">
             <img
               src={aboutImg}
-              alt="Quiet ceramic mug on linen by warm window light"
+              alt="Dr. Tay gently treating a young patient at Great Smile Dental"
               loading="lazy"
               width={1024}
               height={1280}
