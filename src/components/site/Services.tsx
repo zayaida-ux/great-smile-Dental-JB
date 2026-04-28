@@ -1,30 +1,41 @@
-import { Sparkles, Wrench, Smile, Stethoscope, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import aestheticImg from "@/assets/service-aesthetic.jpg";
+import restorationsImg from "@/assets/service-restorations.jpg";
+import orthoImg from "@/assets/service-ortho.jpg";
+import surgeryImg from "@/assets/service-surgery.jpg";
 
 const services = [
   {
-    Icon: Sparkles,
+    image: aestheticImg,
+    alt: "Close-up of a bright, natural smile",
     title: "Aesthetic Dentistry",
+    description:
+      "Subtle enhancements that honour your natural features — refined, never overdone.",
     items: ["ICON Resin (No-drill)", "Laser Whitening", "Porcelain Veneers"],
-    span: "md:col-span-7 md:row-span-2",
-    tall: true,
   },
   {
-    Icon: Wrench,
+    image: restorationsImg,
+    alt: "Close-up of a porcelain dental restoration",
     title: "Modern Restorations",
+    description:
+      "Tooth-coloured, durable restorations crafted to feel and look indistinguishable from your own.",
     items: ["Same-day Fibre Bridges", "Aesthetic Natural Fillings"],
-    span: "md:col-span-5",
   },
   {
-    Icon: Smile,
+    image: orthoImg,
+    alt: "Clear dental aligner on soft cream cloth",
     title: "Orthodontics & Kids",
+    description:
+      "Gentle, modern alignment for every age — discreet for adults, calming for little ones.",
     items: ["Clear Aligners", "Myobrace Therapy", "Pediatric Care"],
-    span: "md:col-span-5",
   },
   {
-    Icon: Stethoscope,
+    image: surgeryImg,
+    alt: "High-end modern dental clinic with 3D scanner",
     title: "Oral Surgery",
+    description:
+      "Advanced, minimally-invasive techniques performed with patience and precision.",
     items: ["Gentle Wisdom Tooth Surgery", "Dental Implants"],
-    span: "md:col-span-7",
   },
 ];
 
@@ -49,19 +60,28 @@ export function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-12 md:auto-rows-[minmax(220px,auto)]">
-          {services.map(({ Icon, title, items, span, tall }) => (
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+          {services.map(({ image, alt, title, description, items }) => (
             <article
               key={title}
-              className={`group relative flex flex-col justify-between overflow-hidden rounded-[1.75rem] border border-border bg-background p-8 transition hover:border-clay md:p-10 ${span}`}
+              className="group flex flex-col overflow-hidden rounded-[1.75rem] border border-border bg-background transition hover:border-clay"
             >
-              <div>
-                <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-sand text-primary">
-                  <Icon className="h-5 w-5" strokeWidth={1.5} />
-                </div>
-                <h3 className={`font-serif text-foreground ${tall ? "text-4xl md:text-5xl" : "text-3xl md:text-4xl"}`}>
-                  {title}
-                </h3>
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-sand">
+                <img
+                  src={image}
+                  alt={alt}
+                  loading="lazy"
+                  width={1024}
+                  height={768}
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+                />
+              </div>
+
+              <div className="flex flex-1 flex-col p-8 md:p-10">
+                <h3 className="font-serif text-3xl text-foreground md:text-4xl">{title}</h3>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-[15px]">
+                  {description}
+                </p>
                 <ul className="mt-6 space-y-2 text-sm text-muted-foreground md:text-[15px]">
                   {items.map((it) => (
                     <li key={it} className="flex items-center gap-3">
@@ -70,14 +90,15 @@ export function Services() {
                     </li>
                   ))}
                 </ul>
+
+                <a
+                  href="#booking"
+                  className="mt-10 inline-flex w-fit items-center gap-2 rounded-full border border-foreground/80 px-6 py-3 text-[11px] uppercase tracking-[0.25em] text-foreground transition hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                >
+                  Consult Dr. Tay
+                  <ArrowUpRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </a>
               </div>
-              <a
-                href="#booking"
-                className="mt-10 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-foreground transition group-hover:text-primary"
-              >
-                Consult Dr. Tay
-                <ArrowUpRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
             </article>
           ))}
         </div>
