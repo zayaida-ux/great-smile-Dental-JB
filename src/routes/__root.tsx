@@ -29,14 +29,18 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Great Smile Dental – Modern Clinic Website UI/UX Concept" },
+      { name: "description", content: "A modern, conversion-focused website concept for Great Smile Dental designed to improve patient trust, appointment bookings, and overall online presence." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Great Smile Dental – Modern Clinic Website UI/UX Concept" },
+      { property: "og:description", content: "A modern, conversion-focused website concept for Great Smile Dental designed to improve patient trust, appointment bookings, and overall online presence." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Great Smile Dental – Modern Clinic Website UI/UX Concept" },
+      { name: "twitter:description", content: "A modern, conversion-focused website concept for Great Smile Dental designed to improve patient trust, appointment bookings, and overall online presence." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/89c7da5b-5a2b-4916-9cbf-207bc5b51380/id-preview-a629ed8a--78410f30-3524-4bf6-9a5a-25f443817cbf.lovable.app-1777385372930.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/89c7da5b-5a2b-4916-9cbf-207bc5b51380/id-preview-a629ed8a--78410f30-3524-4bf6-9a5a-25f443817cbf.lovable.app-1777385372930.png" },
     ],
     links: [
       {
